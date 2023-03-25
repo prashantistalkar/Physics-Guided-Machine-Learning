@@ -106,7 +106,6 @@ def LSTM_function(XTrain,YTrain,XTest,sample_size_train,sample_size_test,input_s
     model.add(LSTM(128,recurrent_dropout=0.1,input_shape=(input_seq_len, 1)))
     model.add(RepeatVector(10))
     model.add(LSTM(128,recurrent_dropout=0.1, return_sequences=True))
-    model.add(Dropout(0.2))
     model.add(TimeDistributed(Dense(1)))
     #model.add(TimeDistributed(Dense(1,activation='relu')))
     callback =callbacks.EarlyStopping(monitor='loss', patience=10)
